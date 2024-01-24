@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <title>card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="containers pt-5 px-3">
+      <div class="row">
+        <div class="col ">
+          <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1698424954529-43aaa37b8ac1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="img">
+            <div class="card-body">
+              <button href="#" id="btn" onclick="btnChange(0)" class="btn btn-primary"><i class="bi bi-bookmark-plus"></i>Whishlis</button>
+              <h5 class="card-title mt-3">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- script -->
+    <script>
+      var image = [
+        "https://images.unsplash.com/photo-1698424954529-43aaa37b8ac1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1698322281610-0e4d97c90ec7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1696814543693-31fcf942ccb7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1698443357916-b2a72ceddd9b?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      ];
+
+      let card = document.querySelector('.col');
+      let containers = document.querySelector('.row')
+
+      for (let i=0; i<3; i++){
+        let newCard = card.cloneNode(true);
+        newCard.querySelector('.card-img-top').src = image[i+1];
+        containers.appendChild(newCard);
+      }
+
+      // btn
+      
+      
+        
+        function btnChange(event,index){
+          
+          let button = document.getElementsByClassName('btn-primary');
+          let icons = document.getElementsByClassName('bi-bookmark-plus');
+
+          if(button.classList.contains('btn-primary') && icons[index].classList.contains('bi-bookmark-plus')){
+            button[index].classList.replace('btn-primary','btn-success')
+            icons[index].classList.replace('bi-bookmark-plus','bi-bookmark-check-fill')
+          }else{
+            button[index].classList.replace('btn-success','btn-primary')
+            icons[index].classList.replace('bi-bookmark-check-fill','bi-bookmark-plus')
+          }
+        }
+      
+
+
+      // function btn(){
+      //   let icons = document.getElementsByClassName('bi-bookmark-plus');
+      //   if (button.classList.contains('btn-primary'),icons.classList.contains('bi-bookmark-plus')){
+      //     button.classList.replace()
+      //   }
+      // }
+    </script>
+  </body>
+</html>
