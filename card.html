@@ -14,9 +14,9 @@
       <div class="row">
         <div class="col ">
           <div class="card" style="width: 18rem;">
-            <img src="https://images.unsplash.com/photo-1698424954529-43aaa37b8ac1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="img">
+            <img src="" class="card-img-top" alt="img">
             <div class="card-body">
-              <button href="#" id="btn" onclick="btnChange(0)" class="btn btn-primary"><i class="bi bi-bookmark-plus"></i>Whishlis</button>
+              <button href="" id="btn" onclick="btnChange(event)" class="btn btn-primary"><i class="bi bi-bookmark-plus me-2"></i>Whishlis</button>
               <h5 class="card-title mt-3">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
@@ -37,9 +37,9 @@
       let card = document.querySelector('.col');
       let containers = document.querySelector('.row')
 
-      for (let i=0; i<3; i++){
+      for (let i=0; i=4; i++){
         let newCard = card.cloneNode(true);
-        newCard.querySelector('.card-img-top').src = image[i+1];
+        newCard.querySelector('.card-img-top').src = image[i];
         containers.appendChild(newCard);
       }
 
@@ -47,28 +47,28 @@
       
       
         
-        function btnChange(event,index){
+        function btnChange(event, index){
           
-          let button = document.getElementsByClassName('btn-primary');
-          let icons = document.getElementsByClassName('bi-bookmark-plus');
+          let btn = document.getElementsByClassName('btn-primary');
+    
+          if (btn.length >= index) {
+            let button = event.target;
+            let icon = button.querySelector('.bi');
 
-          if(button.classList.contains('btn-primary') && icons[index].classList.contains('bi-bookmark-plus')){
-            button[index].classList.replace('btn-primary','btn-success')
-            icons[index].classList.replace('bi-bookmark-plus','bi-bookmark-check-fill')
-          }else{
-            button[index].classList.replace('btn-success','btn-primary')
-            icons[index].classList.replace('bi-bookmark-check-fill','bi-bookmark-plus')
+            if (button.classList.contains('btn-primary')) {
+              button.classList.replace('btn-primary', 'btn-success');
+              icon.classList.replace('bi-bookmark-plus','bi-bookmark-check-fill');
+            } else {
+              button.classList.replace('btn-success', 'btn-primary');
+              icon.classList.replace('bi-bookmark-check-fill','bi-bookmark-plus');
+            }
           }
+
+          // Additional logic based on the event or index if needed
+          console.log("Button clicked at index:", index);
+  
         }
       
-
-
-      // function btn(){
-      //   let icons = document.getElementsByClassName('bi-bookmark-plus');
-      //   if (button.classList.contains('btn-primary'),icons.classList.contains('bi-bookmark-plus')){
-      //     button.classList.replace()
-      //   }
-      // }
     </script>
   </body>
 </html>
